@@ -30,13 +30,13 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        sh "sudo scp **/target/*.war ubuntu@${params.tomcat_stag}:/usr/share/tomcat/webapps"
+                        sh "scp **/target/*.war ubuntu@${params.tomcat_stag}:/usr/share/tomcat/webapps"
                     }
                 }
 
                 stage ("Deploy to Production"){
                     steps {
-                        sh "sudo scp **/target/*.war ubuntu@${params.tomcat_prod}:/usr/share/tomcat/webapps"
+                        sh "scp **/target/*.war ubuntu@${params.tomcat_prod}:/usr/share/tomcat/webapps"
                     }
                 }
             }
