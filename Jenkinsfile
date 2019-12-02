@@ -30,7 +30,7 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        sh "scp -i /home/ubuntu/findme.pem **/target/*.war ubuntu@${params.tomcat_prod}:/usr/share/tomcat/webapps"
+                        sh "scp -i /home/ubuntu/findme.pem **/target/*.war ubuntu@${params.tomcat_stag}:/usr/share/tomcat/webapps"
                     }
                 }
 
