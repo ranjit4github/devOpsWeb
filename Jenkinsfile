@@ -30,13 +30,13 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        sh "scp **/target/*.war jenkins@${params.tomcat_stag}:/usr/share/tomcat/webapps"
+                        sh "scp **/*.war jenkins@${params.tomcat_stag}:/usr/share/tomcat/webapps"
                     }
                 }
 
                 stage ("Deploy to Production"){
                     steps {
-                        sh "scp **/target/*.war jenkins@${params.tomcat_prod}:/usr/share/tomcat/webapps"
+                        sh "scp **/*.war jenkins@${params.tomcat_prod}:/usr/share/tomcat/webapps"
                     }
                 }
             }
