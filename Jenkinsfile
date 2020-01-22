@@ -30,13 +30,13 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        sh "scp **/*.war jenkins@${params.tomcat_stag}:/opt/tomcat/webapps/"
+                        bat "pscp **/*.war jenkins@${params.tomcat_stag}:/opt/tomcat/webapps/"
                     }
                 }
 
                 stage ("Deploy to Production"){
                     steps {
-                        sh "scp **/*.war jenkins@${params.tomcat_prod}:/opt/tomcat/webapps/"
+                        bat "pscp **/*.war jenkins@${params.tomcat_prod}:/opt/tomcat/webapps/"
                     }
                 }
             }
