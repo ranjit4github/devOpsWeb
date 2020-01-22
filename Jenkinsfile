@@ -5,8 +5,7 @@ pipeline {
         maven 'localMaven'
     }
     parameters {
-         string(name: 'tomcat_stag', defaultValue: '18.190.28.180', description: 'Node1-Remote Staging Server')
-         string(name: 'tomcat_prod', defaultValue: '18.222.204.51', description: 'Node2-Remote Production Server')
+         string(name: 'tomcat_prod', defaultValue: '18.217.145.64', description: 'Node2-Remote Production Server')
     }
 
     triggers {
@@ -28,12 +27,6 @@ stages{
 
         stage ('Deployments'){
             parallel{
-                stage ('Deploy to Staging'){
-                    steps {
-                        sh "scp -v **/*.war jenkins@${params.tomcat_stag}:/opt/tomcat/webapps/"
-                    }
-                }
-
                 stage ("Deploy to Production"){
                     steps {
                         sh "scp -v **/*.war jenkins@${params.tomcat_prod}:/opt/tomcat/webapps/"
