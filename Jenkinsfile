@@ -16,7 +16,7 @@ pipeline {
 stages{
         stage('Build'){
             steps {
-                bat 'mvn clean package'
+                sh 'mvn clean package'
             }
             post {
                 success {
@@ -30,13 +30,13 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        bat "pscp target/*.war jenkins@${params.tomcat_stag}:/opt/tomcat/webapps/"
+                        sh "scp **/*.war jenkins@${params.tomcat_stag}:/opt/tomcat/webapps/"
                     }
                 }
 
                 stage ("Deploy to Production"){
                     steps {
-                        bat "pscp target/*.war jenkins@${params.tomcat_prod}:/opt/tomcat/webapps/"
+                        sh "scp **/*.war jenkins@${params.tomcat_prod}:/opt/tomcat/webapps/"
                     }
                 }
             }
