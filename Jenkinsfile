@@ -5,7 +5,7 @@ pipeline {
         maven 'localMaven'
     }
     parameters {
-         string(name: 'tomcat_prod', defaultValue: '18.217.145.64', description: 'Node2-Remote Production Server')
+         string(name: 'tomcat_prod', defaultValue: '13.58.160.165', description: 'Node2-Remote Production Server')
     }
 
     triggers {
