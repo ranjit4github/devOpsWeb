@@ -8,10 +8,6 @@ pipeline {
          string(name: 'tomcat_staging', defaultValue: '35.154.81.229', description: 'Remote Staging Server')
     }
 
-    triggers {
-         pollSCM('* * * * *')
-     }
-
 stages{
         stage('Build'){
             steps {
