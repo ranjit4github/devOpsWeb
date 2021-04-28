@@ -1,15 +1,38 @@
-pipeline{
-	agent any
+pipeline {
+    agent any
+    
     tools {
-        maven 'localMaven'
+        maven 'local_maven'
     }
-	stages{
-		stage('Build'){
-			steps{
-				sh 'mvn clean package'
-				sh 'scp Dockerfile centos@3.17.61.170'
-				sh 'ssh centos@3.17.61.170 "docker build . -t tomcatwebapp:${env.BUILD_ID}"'
-			}
-		}
-	}
+    parameters {
+         string(name: 'tomcat_staging', defaultValue: '35.154.81.229', description: 'Node2-Remote Staging Server')
+    }
+
+    triggers {
+         pollSCM('* * * * *')
+     }
+
+stages{
+        stage('Build'){
+            steps {
+                sh 'mvn clean package'
+            }
+            post {
+                success {
+                    echo 'Archiving the artifacts'
+                    archiveArtifacts artifacts: '**/target/*.war'
+                }
+            }
+        }
+
+        stage ('Deployments'){
+            parallel{
+                stage ("Deploy to Staging"){
+                    steps {
+                        sh "scp -v **/*.war jenkins@${params.tomcat_staging}:/opt/tomcat/webapps/"
+                    }
+                }
+            }
+        }
+    }
 }
