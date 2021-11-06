@@ -17,7 +17,7 @@ stages{
     }
         stage('Build'){
             steps {
-                sh 'mvn clean package sonar:sonar'
+                sh 'mvn clean package'
             }
             post {
                 success {
