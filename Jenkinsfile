@@ -9,9 +9,15 @@ pipeline {
     }
 
 stages{
+    
+    stage('Sonarqube Scan'){
+        steps{
+            echo "Scanning..."
+           }
+    }
         stage('Build'){
             steps {
-                sh 'mvn clean package'
+                sh 'mvn clean package sonar:sonar'
             }
             post {
                 success {
