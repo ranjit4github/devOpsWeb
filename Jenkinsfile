@@ -1,7 +1,8 @@
 pipeline {
-    agent { 
+    /*agent { 
         label 'JavaAgent'
-    }
+    }*/
+    agent any
     
     tools {
         maven 'local_maven'
