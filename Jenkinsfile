@@ -1,11 +1,11 @@
 pipeline {
-    agent any
+    agent JavaAgent
     
     tools {
         maven 'local_maven'
     }
     parameters {
-         string(name: 'staging_server', defaultValue: '3.108.218.235', description: 'Remote Staging Server')
+         string(name: 'staging_server', defaultValue: '65.0.101.113', description: 'Remote Staging Server')
     }
 
 stages{
