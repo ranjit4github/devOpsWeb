@@ -1,7 +1,6 @@
 @Library('My-Jenkins-SharedLibrary') _
 pipeline {
-    agent none
-    //agent any
+    agent any
     
 
 stages{
