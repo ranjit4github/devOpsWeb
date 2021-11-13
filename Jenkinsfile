@@ -1,38 +1,30 @@
+@Library('My-Jenkins-SharedLibrary') _
 pipeline {
-    agent { 
-        label 'JavaAgent'
-    }
+    agent none
     //agent any
     
-    tools {
-        maven 'local_maven'
-    }
-    parameters {
-         string(name: 'staging_server', defaultValue: '65.0.101.113', description: 'Remote Staging Server')
-    }
 
 stages{
     
     stage('Sonarqube Scan'){
         steps{
-            echo "Scanning..."
+            script{
+                scan()
+            }
            }
     }
-        stage('Build'){
+        stage('Java Build'){
             steps {
-                sh 'mvn clean package'
-            }
-            post {
-                success {
-                    echo 'Archiving the artifacts'
-                    archiveArtifacts artifacts: '**/target/*.war'
+                script{
+                    java_build()
                 }
             }
         }
         stage ("Deploy to Staging"){
             steps {
-                //sh "scp -v -o StrictHostKeyChecking=no **/*.war root@${params.staging_server}:/opt/tomcat/webapps/"
-                sh "cp **/*.war /opt/tomcat/webapps/"
+                script{
+                    deploy()
+                }
             }
         }
     }
