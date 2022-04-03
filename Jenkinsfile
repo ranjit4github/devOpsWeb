@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'agent-b4'
+    }
     
     tools {
         maven 'local_maven'
