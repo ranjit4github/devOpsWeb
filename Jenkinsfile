@@ -3,7 +3,10 @@ pipeline {
     agent any
     tools {
         maven 'local_maven'
-    }    
+    }
+    environment{
+        staging_server = '15.207.85.64'
+    }
 
 stages{
     
@@ -28,5 +31,12 @@ stages{
                 }
             }
         }
+    stage ("Upload to S3"){
+        steps {
+            script{
+                upload()
+            }
+        }
+    }
     }
 }
