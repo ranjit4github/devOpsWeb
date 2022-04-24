@@ -5,7 +5,7 @@ pipeline {
         maven 'local_maven'
     }
     environment{
-        staging_server = '15.207.85.64'
+        staging_server = '15.208.86.64'
     }
 
 stages{
