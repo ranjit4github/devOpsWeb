@@ -6,6 +6,9 @@ pipeline {
     }
     environment{
         staging_server = '15.207.85.64'
+        staging_server_2 = '15.207.85.65'
+        version = '2.2'
+        system = 'staging'
     }
 
 stages{
