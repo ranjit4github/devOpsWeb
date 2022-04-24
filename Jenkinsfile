@@ -5,8 +5,8 @@ pipeline {
         maven 'local_maven'
     }
     environment{
-        staging_server = '15.207.85.64'
-        staging_server_2 = '15.207.85.65'
+        staging_server = '15.207.85.64, 15.207.85.65'
+        //staging_server_2 = '15.207.85.65'
         version = '2.2'
         system = 'staging'
     }
