@@ -11,7 +11,7 @@ pipeline {
     triggers {
          pollSCM('* * * * *')
      }
-    environments {
+    environment {
         fname = "Ranjit"
         lname = "Swain"
         version = "1.2"
