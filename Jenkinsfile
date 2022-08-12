@@ -31,7 +31,7 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        sh "scp **/*.war jenkins@${params.tomcat_stag}:/opt/tomcat/webapps/"
+                        sh "scp **/*.war root@${params.tomcat_stag}:/opt/tomcat/webapps/"
                         echo "This is made by ${env.fname} ${env.lname}"
                         echo "it's running on ${env.system} and the version is ${env.version}"
                     }
