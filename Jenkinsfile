@@ -5,7 +5,7 @@ pipeline {
         maven 'local_maven'
     }
     parameters {
-         string(name: 'tomcat_stag', defaultValue: '13.232.236.86', description: 'Node1-Remote Staging Server1')
+         string(name: 'tomcat_stag', defaultValue: '13.233.166.195', description: 'Node1-Remote Staging Server1')
     }
 
     triggers {
