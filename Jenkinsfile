@@ -7,10 +7,6 @@ pipeline {
     parameters {
          string(name: 'tomcat_stag', defaultValue: '13.233.166.195', description: 'Node1-Remote Staging Server1')
     }
-
-    triggers {
-         pollSCM('* * * * *')
-     }
     environment {
         fname = "Ranjit"
         lname = "Swain"
@@ -35,7 +31,7 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        sh 'scp **/*.war jenkins@${params.tomcat_stag}:/opt/tomcat/webapps/'
+                        sh "scp **/*.war jenkins@${params.tomcat_stag}:/opt/tomcat/webapps/"
                         echo "This is made by ${env.fname} ${env.lname}"
                         echo "it's running on ${env.system} and the version is ${env.version}"
                     }
