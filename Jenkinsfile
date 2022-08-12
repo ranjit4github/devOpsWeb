@@ -35,10 +35,9 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        //sh "scp **/*.war jenkins@${params.tomcat_stag}:/opt/tomcat/webapps/"
+                        sh 'scp **/*.war jenkins@${params.tomcat_stag}:/opt/tomcat/webapps/'
                         echo "This is made by ${env.fname} ${env.lname}"
                         echo "it's running on ${env.system} and the version is ${env.version}"
-                        deploy adapters: [tomcat7(credentialsId: '58cccd86-7ec3-4a1a-8dfd-8f664aff0392', path: '', url: 'http://3.108.221.41:8282/')], contextPath: '/opt/tomcat/webapps', war: '**/*.war'
                     }
                 }
 
