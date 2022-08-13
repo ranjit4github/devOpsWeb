@@ -38,8 +38,9 @@ stages{
                 stage ("Deploy to Production"){
                     steps {
                         echo 'This is just a demo on Production server.'
-                        props = readProperties file: 'build.cnf'
-                        
+                        script{
+                            props = readProperties file: 'build.cnf'
+                        }
                         echo "Current Version ${props['deploy.version']}"
                     }
                 }
