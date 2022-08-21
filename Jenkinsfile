@@ -39,7 +39,7 @@ stages{
     }
     post{
         success{
-            emailext body: 'A Test Email', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test mail'
+            emailext body: 'A Test Email', subject: 'Test mail', to: 'rs.ranjitswain.com'
         }
     }
 }
