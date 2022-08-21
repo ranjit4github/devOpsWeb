@@ -17,13 +17,18 @@ stages{
                 echo "Building"
             }
         }
+    post{
+        success{
+            emailext body: 'A Test Email', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test mail'
+        }
+    }
 
         stage ('Deployments'){
             parallel{
                 stage ('Deploy to Staging'){
-                    agent {
-                        label 'linuxagent'
-                    }
+                    /*agent {
+                       label 'linuxagent'
+                    }*/
                     steps {
                         
                         echo "This is made by ${env.fname} ${env.lname}"
