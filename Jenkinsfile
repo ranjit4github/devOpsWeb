@@ -1,15 +1,5 @@
 pipeline {
     agent any
-    
-    tools {
-        maven 'local_maven'
-    }
-    environment {
-        fname = "Ranjit"
-        lname = "Swain"
-        version = "1.2"
-        system = "Dev"
-    }
 
 stages{
         stage('Build'){
@@ -17,29 +7,13 @@ stages{
                 echo "Building"
             }
         }
-        stage ('Deployments'){
-            parallel{
-                stage ('Deploy to Staging'){
-                    /*agent {
-                       label 'linuxagent'
-                    }*/
-                    steps {
-                        
-                        echo "This is made by ${env.fname} ${env.lname}"
-                    }
-                }
-
-                stage ("Deploy to Production"){
-                    steps {
-                        echo 'This is just a demo on Production server.'
-                    }
-                }
-            }
-        }
     }
     post{
         success{
-            emailext attachLog: true, body: 'Test mail content', subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'rs.ranjitswain@gmail.com'
+            emailext attachLog: true, body: 'Build Succeeded', subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'rs.ranjitswain@gmail.com'
+        }
+        failure{
+            emailext attachLog: true, body: 'Build Failed', subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'rs.ranjitswain@gmail.com'
         }
     }
 }
