@@ -39,7 +39,7 @@ stages{
     }
     post{
         success{
-            emailext body: 'A Test Email', subject: 'Test mail', to: 'rs.ranjitswain@gmail.com'
+            emailext body: 'Test mail', recipientProviders: [buildUser()], subject: 'Test', to: 'rs.ranjitswain@gmail.com'
         }
     }
 }
