@@ -39,7 +39,7 @@ stages{
     }
     post{
         success{
-            emailext attachLog: true, body: 'Test mail content', subject: 'Test Mail', to: 'rs.ranjitswain@gmail.com'
+            emailext attachLog: true, body: 'Test mail content', to: 'rs.ranjitswain@gmail.com'
         }
     }
 }
