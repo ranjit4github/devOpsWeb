@@ -1,3 +1,5 @@
+@Library ('My-Jenkins-SharedLibrary')_
+
 pipeline{
     agent any
     
@@ -7,13 +9,16 @@ pipeline{
     stages{
         stage ('Build'){
             steps{
-                echo "Building"
+                script{
+                    build()
+                }
             }
         }
         stage ('Deploy to tomcat server') {
             steps{
-
-                echo "Deployment"
+                script{
+                    deployDemo()
+                }
             }
         }
     }
