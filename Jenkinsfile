@@ -12,6 +12,11 @@ pipeline {
                 echo "Testing..."
             }
         }
+        stage('Deliver'){
+            steps{
+                echo "Deliver the code"
+            }
+        }
     }
 }
 
