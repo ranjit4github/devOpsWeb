@@ -10,14 +10,14 @@ pipeline{
         stage ('Build'){
             steps{
                 script{
-                    build()
+                    java_build()
                 }
             }
         }
-        stage ('Deploy to tomcat server') {
+        stage ('Upload to S3 Bucket') {
             steps{
                 script{
-                    deployDemo()
+                    upload-using-s3-plugin()
                 }
             }
         }
