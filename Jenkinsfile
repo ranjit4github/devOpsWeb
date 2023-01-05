@@ -19,7 +19,7 @@ pipeline{
         }
         stage ('Execute Playbook') {
             steps{
-                ansiblePlaybook inventory: '/ect/ansible/hosts', playbook: '/etc/ansible/deployApp.yml'
+                ansiblePlaybook inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/deployApp.yml'
             }
         }
     }
