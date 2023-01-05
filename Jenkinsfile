@@ -21,7 +21,7 @@ pipeline{
             steps{
                 
                 sh '''
-                    ansible-playbook /etc/ansible/deployApp.yml -i /etc/ansible/hosts
+                    ansible-playbook /etc/ansible/deployApp.yml -i /etc/ansible/hosts --private-key /home/ec2-user/pswain.pem
                 '''
             }
         }
