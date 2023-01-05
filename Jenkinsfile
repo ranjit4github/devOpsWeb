@@ -19,7 +19,7 @@ pipeline{
         }
         stage ('Execute Playbook') {
             steps{
-                ansiblePlaybook credentialsId: '9f4ccbec-2822-42be-b293-185a33da3328', inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/deployApp.yml'
+                
                 sh '''
                     ansible-playbook /etc/ansible/deployApp.yml -i /etc/ansible/hosts --private-key /home/ec2-user/pswain.pem
                 '''
