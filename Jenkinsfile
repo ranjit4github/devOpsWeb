@@ -21,7 +21,7 @@ pipeline{
             steps{
                 
                 sh '''
-                    ansible-playbook -vvv /etc/ansible/deployApp.yml -i /etc/ansible/hosts -u ec2-user
+                    ansiblePlaybook credentialsId: '9f4ccbec-2822-42be-b293-185a33da3328', disableHostKeyChecking: true, inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/deployApp.yml'
                 '''
             }
         }
