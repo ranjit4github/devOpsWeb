@@ -21,7 +21,7 @@ pipeline{
             steps{
                 
                 sh '''
-                    ansible-playbook /etc/ansible/deployApp.yml -i /etc/ansible/hosts
+                    ansible-playbook -vvv /etc/ansible/deployApp.yml -i /etc/ansible/hosts
                 '''
             }
         }
