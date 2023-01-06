@@ -19,7 +19,7 @@ pipeline{
         }
         stage ('Execute Playbook') {
             steps{
-                ansiblePlaybook credentialsId: '9f4ccbec-2822-42be-b293-185a33da3328', disableHostKeyChecking: true, inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/deployApp.yml'
+                ansiblePlaybook credentialsId: '9f4ccbec-2822-42be-b293-185a33da3328', installation: 'Ansible', disableHostKeyChecking: true, inventory: '/etc/ansible/hosts', playbook: '/etc/ansible/deployApp.yml'
             }
         }
     }
