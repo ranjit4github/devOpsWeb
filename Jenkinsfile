@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'agent-b4'
+        label 'agent-B4'
     }
     
     tools {
