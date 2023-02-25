@@ -12,4 +12,5 @@ pipeline{
                 echo "Unit testing" 
             }
         }
+    }
 }
