@@ -4,3 +4,5 @@ target/
 *.war
 *.ini
 *.cnf
+.project
+.classpath
