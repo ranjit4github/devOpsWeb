@@ -3,6 +3,7 @@ pipeline {
     
     tools {
         maven 'localMaven'
+	JDK 'localJAVA'
     }
     environment {
         fname = "Ranjit"
