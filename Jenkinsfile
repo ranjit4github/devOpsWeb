@@ -35,6 +35,7 @@ stages{
 			    echo "This is made by ${env.fname} ${env.lname}"
                         echo "it's running on ${env.system} and the version is ${env.version}"
 			echo "Deploying to Staging Environment!"
+			    echo "Triggered by github-hook"
                     }
                 }
 
