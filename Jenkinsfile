@@ -28,27 +28,12 @@ stages{
         }
 
         stage ('Deployments'){
-            parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        
-			    echo "This is made by ${env.fname} ${env.lname}"
-                        echo "it's running on ${env.system} and the version is ${env.version}"
-			echo "Deploying to Staging Environment!"
-			    echo "Triggered by github-hook"
+                        deploy adapters: [tomcat7(credentialsId: 'tomcat2', path: '', url: 'http://3.110.213.23:8080/')], contextPath: null, onFailure: false, war: '**/*.war'
                     }
                 }
 
-                stage ("Deploy to Staging2"){
-                    steps {
-                        echo 'This is just a demo on Production server.'
-                        /*script{
-                            props = readProperties file: 'build.cnf'
-                        }
-                        echo "Current Version ${props['deploy.version']}"*/
-                    }
-                }
             }
         }
-    }
 }
