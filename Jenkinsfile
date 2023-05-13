@@ -27,12 +27,10 @@ stages{
             }
         }
 
-        stage ('Deployments'){
-                stage ('Deploy to Staging'){
-                    steps {
-                        deploy adapters: [tomcat7(credentialsId: 'tomcat2', path: '', url: 'http://52.66.200.7:8080/')], contextPath: null, onFailure: false, war: '**/*.war'
-                    }
+        stage ('Deploy to Staging'){
+            steps {
+                deploy adapters: [tomcat7(credentialsId: 'tomcat2', path: '', url: 'http://52.66.200.7:8080/')], contextPath: null, onFailure: false, war: '**/*.war'
             }
         }
-    }
+  }
 }
