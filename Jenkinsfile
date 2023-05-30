@@ -32,11 +32,12 @@ stages{
 			'''
 		}
 	}
-	stage ('Deploy to Staging'){
+	stage ('Deploy App'){
 	    steps {
-		echo "This is made by ${env.fname} ${env.lname}"
-		echo "it's running on ${env.system} and the version is ${env.version}"
-		//deploy adapters: [tomcat7(credentialsId: 'StagingTomcatServer', path: '', url: 'http://3.110.179.112:8080/')], contextPath: null, war: '**/*.war'
+		sh '''
+			echo "Deploying Application"
+			ansible-playbook /etc/ansible/deployApp.yml
+		'''
 	    }
 	}
     }
