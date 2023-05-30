@@ -11,3 +11,6 @@ resource "aws_instance" "myinstance" {
     name = "TF-DemoServer"
   }
 }
+  provisioner "local-exec" {
+   command = "echo ${aws_instance.myinstance.public_ip} >> public_ip.txt"
+  }
