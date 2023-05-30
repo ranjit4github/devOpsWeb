@@ -28,18 +28,6 @@ stages{
 			sh '''
 				cd tf
 				terraform init
-				terraform plan
-			'''
-		}
-	}
-	stage ('Provision EC2 instance - Apply'){
-		input{
-			message "Do you want to apply?"
-			ok "yes"
-		}
-		steps {
-			sh '''
-				cd tf
 				terraform apply -auto-approve
 			'''
 		}
