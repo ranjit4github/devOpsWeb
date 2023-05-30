@@ -10,7 +10,8 @@ resource "aws_instance" "myinstance" {
   tags = {
     name = "TF-DemoServer"
   }
-}
-  provisioner "local-exec" {
+ provisioner "local-exec" {
    command = "echo ${aws_instance.myinstance.public_ip} >> /etc/ansible/hosts"
   }
+
+}
