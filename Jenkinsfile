@@ -28,7 +28,7 @@ stages{
 			sh '''
 				cd tf
 				terraform init
-				terraform destroy -auto-approve
+				terraform apply -auto-approve
 			'''
 		}
 	}
