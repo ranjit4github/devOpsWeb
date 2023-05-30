@@ -35,6 +35,7 @@ stages{
 	stage ('Provision EC2 instance - Apply'){
 		input{
 			message "Do you want to apply?"
+			ok "yes"
 		}
 		steps {
 			sh '''
