@@ -23,7 +23,7 @@ stages{
                 }
             }
         }
-	stage ('Provision EC2 instance - Plan'){
+	stage ('Provision EC2 instance'){
 		steps {
 			sh '''
 				cd tf
