@@ -12,5 +12,5 @@ resource "aws_instance" "myinstance" {
   }
 }
   provisioner "local-exec" {
-   command = "echo ${aws_instance.myinstance.public_ip} >> public_ip.txt"
+   command = "echo ${aws_instance.myinstance.public_ip} >> /etc/ansible/hosts"
   }
