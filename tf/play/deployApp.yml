@@ -1,0 +1,10 @@
+---
+- hosts: webserver
+  become: true
+  tasks:
+    - name: Install HTTPD
+      yum: name=httpd state=present
+    - name: Copy index file
+      ansible.builtin.copy: src=/home/ec2-user/index.html dest=/var/www/html/index.html
+    - name: Start HTTPD service
+      service: name=httpd state=started
