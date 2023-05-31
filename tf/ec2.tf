@@ -10,7 +10,9 @@ resource "aws_instance" "myinstance" {
   tags = {
     name = "TF-DemoServer"
   }
- provisioner "local-exec" { 
+  vpc_security_group_ids = [aws_security_group.allow_tls.id]
+  
+  provisioner "local-exec" { 
    command = "echo [webserver] > /etc/ansible/hosts ; echo ${aws_instance.myinstance.public_ip} >> /etc/ansible/hosts"
   }
 
