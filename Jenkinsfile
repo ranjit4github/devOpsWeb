@@ -4,12 +4,6 @@ pipeline {
     tools {
         maven 'localMaven'
     }
-    environment {
-        fname = "Ranjit"
-        lname = "Swain"
-        version = "1.2"
-        system = "Dev"
-    }
 
 stages{
         stage('Build'){
@@ -23,7 +17,7 @@ stages{
                 }
             }
         }
-	/*stage ('Provision EC2 instance'){
+	stage ('Provision EC2 instance'){
 		steps {
 			sh '''
 				cd tf
@@ -31,7 +25,7 @@ stages{
 				terraform apply -auto-approve
 			'''
 		}
-	}*/
+	}
 	stage ('Deploy App'){
 	    steps {
 		sh '''
