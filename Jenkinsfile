@@ -9,7 +9,7 @@ pipeline{
         }
         stage ('Test'){
             steps{
-                echo "Unit testing2" 
+                echo "Unit testing" 
             }
         }
     }
