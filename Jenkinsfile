@@ -3,6 +3,7 @@ pipeline {
     
     tools {
         maven 'localMaven'
+        jdk 'Java8'
     }
 
 stages{
