@@ -1,15 +1,21 @@
-pipeline{
+pipeline {
     agent any
+    
+    tools {
+        maven 'localMaven'
+        jdk 'Java8'
+    }
 
-    stages{
-        stage ('Build'){
-            steps{
-                echo "Building"
+stages{
+        stage('Build'){
+            steps {
+                sh 'mvn clean package'
             }
-        }
-        stage ('Test'){
-            steps{
-                echo "Unit testing" 
+            post {
+                success {
+                    echo 'Archiving the artifacts'
+                    archiveArtifacts artifacts: '**/*.war'
+                }
             }
         }
     }
