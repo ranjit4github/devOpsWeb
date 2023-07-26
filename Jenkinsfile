@@ -1,9 +1,17 @@
 @Library('My-Jenkins-SharedLibrary')_
-node{
 
-    def demoVar='TestVariable123'
-    
-    stage ('test'){
-        deployDemo.test()
+pipeline{
+
+    environment{
+        demoVar='TestVariable123'
+    }
+    stages{
+        stage ('testStage'){
+            steps{
+                script{
+                    deployDemo.test()
+                }
+            }
+        }
     }
 }
