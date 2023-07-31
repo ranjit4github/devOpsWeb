@@ -22,7 +22,7 @@ stages{
             parallel{
                 stage ("Deploy to Staging"){
                     steps {
-                        deploy adapters: [tomcat8(credentialsId: '88d51b0c-bb63-41fc-961f-cf8eb11d916e', path: '', url: 'http://3.87.146.9:8080/')], contextPath: null, war: '**/*.war'deploy adapters: [tomcat8(credentialsId: '88d51b0c-bb63-41fc-961f-cf8eb11d916e', path: '', url: 'http://3.87.146.9:8080/')], contextPath: null, war: '**/*.war'
+                        git branch: 'test-1.1', credentialsId: '87309fd3-2aff-463b-b75e-22614fdb7deb', url: 'https://github.com/srinu856/devop1.git'
                     }
                 }
             }
