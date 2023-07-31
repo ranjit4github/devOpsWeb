@@ -22,8 +22,7 @@ stages{
             parallel{
                 stage ("Deploy to Staging"){
                     steps {
-                        deploy adapters: [tomcat8(credentialsId: '88d51b0c-bb63-41fc-961f-cf8eb11d916e', path: '', url: 'http://3.87.146.9:8080/')], contextPath: 'devop1', war: '**/*.war'
-                    }
+                       deploy adapters: [tomcat9(credentialsId: '88d51b0c-bb63-41fc-961f-cf8eb11d916e', path: '', url: 'http://34.229.205.149:8080')], contextPath: null, war: '**/*.war'
                 }
             }
         }
