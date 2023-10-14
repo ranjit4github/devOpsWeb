@@ -1,33 +1,34 @@
 pipeline {
-    agent {
-        label 'agent-B4'
-    }
+    agent any
     
     tools {
-        maven 'local_maven'
+        maven 'localMaven'
     }
     parameters {
          string(name: 'staging_server', defaultValue: '13.233.198.150', description: 'Remote Staging Server')
     }
 
 stages{
+
+        stage ('Unit Test'){
+            echo "Unit Test"
+        }
         stage('Build'){
             steps {
                 sh 'mvn clean package'
             }
             post {
                 success {
-                    echo 'Archiving the artifacts'
-                    archiveArtifacts artifacts: '**/target/*.war'
+                    echo "Email triggered"
                 }
             }
         }
 
-        stage ('Deployments'){
+        stage ('Deploy'){
             parallel{
                 stage ("Deploy to Staging Server1"){
                     steps {
-                        sh "scp -v -o StrictHostKeyChecking=no **/*.war root@${params.staging_server}:/opt/tomcat/webapps/"
+                        
                     }
                 }
                 stage ('Deploy to staging Server2'){
