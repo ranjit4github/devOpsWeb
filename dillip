@@ -4,9 +4,14 @@ pipeline{
         maven 'local Maven'
     }
     stages{
-        stage('check in code'){
+        stage('code downloads'){
             steps{
-                git 'https://github.com/kdillip/devOpsWeb.git'
+                git 'https://github.com/ranjit4github/devOpsWeb.git'
+            }
+        }
+        stage('build code'){
+            steps{
+                sh 'mvn package'
             }
         }
     }
