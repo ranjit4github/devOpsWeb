@@ -1,7 +1,7 @@
 pipeline{
     agent any
     tools{
-        maven 'local Maven'
+        maven 'local_maven'
     }
     stages{
         stage('code downloads'){
