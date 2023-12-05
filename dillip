@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage('check in code'){
             steps{
-                git 'https://github.com/ranjit4github/devOpsWeb.git'
+                git 'https://github.com/kdillip/devOpsWeb.git'
             }
         }
     }
