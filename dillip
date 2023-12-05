@@ -1,7 +1,7 @@
 pipeline{
     agent any
     tools{
-        maven 'local maven'
+        maven 'local Maven'
     }
     stages{
         stage('check in code'){
