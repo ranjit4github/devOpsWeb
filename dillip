@@ -1,0 +1,13 @@
+pipeline{
+    agent any
+    tools{
+        maven 'local maven'
+    }
+    stages{
+        stage('check in code'){
+            steps{
+                git 'https://github.com/ranjit4github/devOpsWeb.git'
+            }
+        }
+    }
+}
