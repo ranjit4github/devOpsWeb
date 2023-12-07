@@ -1,0 +1,18 @@
+pipeline{
+    agent any
+    tools{
+        maven 'local_maven'
+    }
+    stages{
+        stage('code downloads'){
+            steps{
+                git 'https://github.com/ranjit4github/devOpsWeb.git'
+            }
+        }
+        stage('build code'){
+            steps{
+                sh 'mvn package'
+            }
+        }
+    }
+}
