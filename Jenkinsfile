@@ -24,9 +24,9 @@ stages{
                 }
             }
         }
-          stage ('Deploy to Staging1'){
+          stage ('Deploy to Staging'){
               steps {
-                    echo 'This is just a demo on Staging1 server.'
+                    echo 'This is just a demo on Staging server.'
               }
           }
     }
