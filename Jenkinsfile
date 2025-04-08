@@ -24,6 +24,9 @@ stages{
                     echo 'Archiving the artifacts'
                     archiveArtifacts artifacts: '**/target/*.war'
                 }
+                failure{
+                    emailext attachLog: true, body: 'Build failed', subject: 'Build Failed - ${BUILDNUMBER}', to: 'ranjitswain@gmail.com'
+                }
             }
         }
           stage ('Deploy to Staging'){
