@@ -1,17 +1,11 @@
 pipeline {
     agent {
-        label 'APPBUILD'
+        label 'JAVA_BUILD_SERVER'
     }
     
     tools {
         maven 'localMaven'
         jdk 'localJava'
-    }
-    environment {
-        fname = "Ranjit"
-        lname = "Swain"
-        version = "1.2"
-        system = "Test"
     }
 
 stages{
@@ -31,7 +25,7 @@ stages{
         }
           stage ('Deploy to Staging'){
               steps {
-                    echo 'This is just a demo on Staging server.'
+                    deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://13.127.187.179:8080/')], contextPath: null, war: '**/*.war'
               }
           }
     }
