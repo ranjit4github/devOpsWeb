@@ -1,9 +1,7 @@
 @Library ('demoSharedLib')_
 
 pipeline {
-    agent {
-        label 'JAVA_BUILD_SERVER'
-    }
+    agent any
     
     tools {
         maven 'localMaven'
