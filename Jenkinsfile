@@ -1,3 +1,5 @@
+@Library('demoSharedLib') _
+
 pipeline {
     agent {
         label 'JAVA_BUILD_SERVER'
@@ -11,7 +13,9 @@ pipeline {
 stages{
         stage('Build'){
             steps {
-                sh 'mvn clean package'
+                script{
+                    build()
+                }
             }
             post {
                 success {
@@ -25,7 +29,10 @@ stages{
         }
           stage ('Deploy to Staging'){
               steps {
-                    deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://13.127.187.179:8080/')], contextPath: null, war: '**/*.war'
+                    //deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://13.127.187.179:8080/')], contextPath: null, war: '**/*.war'
+                  script{
+                      deploy()
+                  }
               }
           }
     }
