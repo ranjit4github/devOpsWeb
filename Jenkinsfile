@@ -12,7 +12,7 @@ stages{
         stage('Build'){
             steps {
                 script{
-                    build()
+                    build.java()
                 }
             }
             post {
